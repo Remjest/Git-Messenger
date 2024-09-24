@@ -219,39 +219,39 @@ int main() {
 
     cout << "Enter the power of the arrays:\n";
     cin >> size;
-    while (size > 26) {
-        cout << "The size of the array cannot be more than 26, since there are only 26 uppercase Latin letters. Try again:\n";
+    while (size > 26 or size < 1) {
+        cout << "The size of the array cannot be more than 26 or less then 1, since there are only 26 uppercase Latin letters. Try again:\n";
         cin >> size;
     }
 
-        cout << "Creating arrays with random letters:\n";
-        rand_array(arr_A,size);
-        rand_array(arr_B,size);
-        rand_array(arr_C,size);
-        rand_array(arr_D,size);
+    cout << "Creating arrays with random letters:\n";
+    rand_array(arr_A,size);
+    rand_array(arr_B,size);
+    rand_array(arr_C,size);
+    rand_array(arr_D,size);
 
-        cout << "Creating lists by arrays:\n";
-        getting_list(arr_A, &li_A, size);
-        getting_list(arr_B, &li_B, size);
-        getting_list(arr_C, &li_C, size);
-        getting_list(arr_D, &li_D, size);
+    cout << "Creating lists by arrays:\n";
+    getting_list(arr_A, &li_A, size);
+    getting_list(arr_B, &li_B, size);
+    getting_list(arr_C, &li_C, size);
+    getting_list(arr_D, &li_D, size);
 
-        cout << "Creating universums by arrays:\n";
-        getting_bool(arr_A, bool_A);
-        getting_bool(arr_B, bool_B);
-        getting_bool(arr_C, bool_C);
-        getting_bool(arr_D, bool_D);
+    cout << "Creating universums by arrays:\n";
+    getting_bool(arr_A, bool_A);
+    getting_bool(arr_B, bool_B);
+    getting_bool(arr_C, bool_C);
+    getting_bool(arr_D, bool_D);
 
-        cout << "Creating machine words by arrays:\n";
-        Mword_A = getting_machine_word(arr_A);
-        Mword_B = getting_machine_word(arr_B);
-        Mword_C = getting_machine_word(arr_C);
-        Mword_D = getting_machine_word(arr_D);
+    cout << "Creating machine words by arrays:\n";
+    Mword_A = getting_machine_word(arr_A);
+    Mword_B = getting_machine_word(arr_B);
+    Mword_C = getting_machine_word(arr_C);
+    Mword_D = getting_machine_word(arr_D);
 
-        auto t1_arr = chrono::high_resolution_clock::now( );
-        int result_size = logical_processing_arr(size,arr_A,arr_B,arr_C,arr_D,arr_E);
-        auto t2_arr = chrono::high_resolution_clock::now( );
-        auto time_arr = chrono::duration_cast<chrono::duration<double, micro>>(t2_arr - t1_arr).count();
+    auto t1_arr = chrono::high_resolution_clock::now( );
+    int result_size = logical_processing_arr(size,arr_A,arr_B,arr_C,arr_D,arr_E);
+    auto t2_arr = chrono::high_resolution_clock::now( );
+    auto time_arr = chrono::duration_cast<chrono::duration<double, micro>>(t2_arr - t1_arr).count();
 
     sort(arr_E, arr_E + result_size);
     cout << "The result of processing the array: \t Execution time: " << time_arr << "\n";
@@ -259,8 +259,8 @@ int main() {
         cout << arr_E[i] << ' ';
     }
 
-        auto t1_li = chrono::high_resolution_clock::now( );
-        logical_processing_li(&li_A, &li_B, &li_C, &li_D, &li_E);
+    auto t1_li = chrono::high_resolution_clock::now( );
+    logical_processing_li(&li_A, &li_B, &li_C, &li_D, &li_E);
     auto t2_li = chrono::high_resolution_clock::now( );
     auto time_li = chrono::duration_cast<chrono::duration<double, micro>>(t2_li - t1_li).count();
 
@@ -273,7 +273,7 @@ int main() {
     }
 
     auto t1_bool = chrono::high_resolution_clock::now( );
-        logical_processing_bool(bool_A, bool_B, bool_C, bool_D, bool_E);
+    logical_processing_bool(bool_A, bool_B, bool_C, bool_D, bool_E);
     auto t2_bool = chrono::high_resolution_clock::now( );
     auto time_bool = chrono::duration_cast<chrono::duration<double, micro>>(t2_bool - t1_bool).count();
 
@@ -285,7 +285,7 @@ int main() {
     }
 
     auto t1_mword = chrono::high_resolution_clock::now( );
-        logical_processing_machine(Mword_A,Mword_B,Mword_C,Mword_D,Mword_E);
+    logical_processing_machine(Mword_A,Mword_B,Mword_C,Mword_D,Mword_E);
     auto t2_mword = chrono::high_resolution_clock::now( );
     auto time_mword = chrono::duration_cast<chrono::duration<double, micro>>(t2_mword - t1_mword).count();
 
@@ -295,12 +295,6 @@ int main() {
             cout << (unsigned char)(i + SHIFT) << ' ';
         }
     }
-
-
-//    cout << "Execution time for arrays: " << (double)time_arr / CLK_TCK / iteration<< "\n";
-//    cout << "Execution time for lists: " << (double)time_li / CLK_TCK / iteration<< "\n";
-//    cout << "Execution time for universums: " << (double)time_bool / CLK_TCK / iteration<< "\n";
-//    cout << "Execution time for machine words: " << (double)time_mword / CLK_TCK / iteration<< "\n";
 
     return 0;
 }
