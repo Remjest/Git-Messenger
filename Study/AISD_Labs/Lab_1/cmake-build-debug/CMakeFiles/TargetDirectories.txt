@@ -1,0 +1,3 @@
+C:/Users/RedMo/CLionProjects/sintaksis/cmake-build-debug/CMakeFiles/sintaksis.dir
+C:/Users/RedMo/CLionProjects/sintaksis/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/RedMo/CLionProjects/sintaksis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
